@@ -1,0 +1,49 @@
+/* body{
+    background: #fddbbe;
+    margin: 0;
+    padding: 0;
+} */
+table{
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    font-size: 15px;
+    min-height: 200px;
+}
+th{
+    background: #ff9b4a;
+    text-align: center;
+    padding: 3px;
+}
+td{
+    background:#fdbf8d;
+    padding: 6px;
+    text-align: center;
+}
+tbody > tr > td:nth-child(11){
+    padding-right: 5px;
+}
+
+
+/*Esitlos componente articulosByUser*/
+.contentTablas { width: 95%; margin: auto; margin-bottom: 2rem;}
+.titleItemByUser { margin: 0; margin-bottom: 0.7rem;}
+
+.itemsByUser {
+    width: 300px;
+    border-radius: 3px;
+    margin: 0;
+    margin-bottom: 1.3rem;
+}
+.btnEnviar {
+    margin-left: 1.4rem;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 1.2em;
+    background: #fffdfd;
+    border-radius: 3px;
+    transition: background .4s ease;
+}
+
+.btnEnviar:hover { background: #fdbf8d;}

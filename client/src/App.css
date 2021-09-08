@@ -1,0 +1,10 @@
+/*Estilos generales*/
+
+body{
+    background: #fcdcc1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+select:focus { outline: none; } /* esto hace que no se le genere un borde al select cuando es pulsado */
+
+.selectArticulos { width: 300px; }

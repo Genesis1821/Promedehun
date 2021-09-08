@@ -1,0 +1,53 @@
+.contentViewRegister{
+  display: inline-block;
+  width:50%;
+  background:#FFF;
+  padding:20px;
+  border-radius:15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+  margin: 30px 0px;
+  margin-left: 22px;
+}
+  
+input {
+  width: 50%;
+margin: auto;
+  padding: 5px;
+  font-size: 1.2em;
+  border: none;
+  border-bottom: 2px solid rgb(199, 199, 199);
+  transition: border-bottom .3s ease;
+  margin: 20px 0;
+}
+input:focus{
+  outline: none;
+  border-bottom: 2px solid #fdcca5;
+}
+input::placeholder{
+  color: black;
+}
+select{
+  width: 91%;
+  margin: auto;
+  padding: 5px;
+  font-size: 1.2em;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.fecha{
+  font-size: 1.2em; 
+}
+#fecha{
+    margin: 10px 0;
+}
+
+.botonEnviar{
+  border: none;
+  padding: 10px;
+  font-size: 1em;
+  margin: 10px 0;
+  background: #fde5d3;
+  cursor: pointer;
+  border-radius: 3px;
+}  

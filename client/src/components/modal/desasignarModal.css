@@ -1,0 +1,50 @@
+.desasignarModal {
+    /* height: 440px; */
+    width: 380px;
+    background:#fcdcc1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 4px;
+}
+.modalDesTitulo {
+    color: rgb(68, 61, 61);
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 1.2rem;
+}
+.desasignarModalTitle {
+    font-size: 20px;
+   
+}
+.desasignarModalInput {
+    width: 330px;
+    margin: 0;
+    border-radius: 3px;
+    margin: 0.6rem 0;
+}
+
+.buttonModalDesag, .buttonModalDesagCancel {
+    border: none;
+    background: #fff;
+    padding: 8px;
+    margin-bottom: 2rem;
+    font-size: 19px;
+    cursor: pointer;
+    border-radius: 3px;  
+    transition: background .4s ease; 
+}
+
+.buttonModalDesagCancel {
+    background: rgb(165, 26, 26);
+    color: #fff;
+    margin-top: .5rem;
+    margin-bottom: 0;
+}
+
+.buttonModalDesag:hover {
+    background: rgb(184, 176, 176);
+}
+
+.selectModalDes { margin: 0.5rem 0 1rem 0; }
