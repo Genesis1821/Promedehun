@@ -1,0 +1,33 @@
+.formUpdateUsuario {
+    width: 360px;
+    background: #fcdcc1;
+    padding: 10px;
+}
+
+.labelUpdateUser {
+    font-size: 20px;
+}
+
+.inputUpdateUser {
+    margin: 0;
+    margin: 0.8rem 0;
+}
+.notaUsuario { font-size: 17px; }
+.buttonsUpdateUser {
+    display: block;
+    border: none;
+    padding: 8px;
+    margin-top: 0.8rem;
+    cursor: pointer;
+    font-size: 19px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.cerrar {
+    background: rgb(165, 26, 26);
+    color: #fff;
+}
+
+
+/*ESITLOS MODAL USER RETIRADO*/

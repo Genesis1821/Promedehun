@@ -1,0 +1,23 @@
+.cabeceraHistorial {
+    width: 300px;
+    background-color: rgb(77, 107, 204);
+    margin: 0;
+    margin-top: 1.5rem;
+    
+}
+
+.inputHistorial {
+    margin: 0;
+    border-radius: 3px;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.TitleHistorial {  font-size: 22px; }
+
+.btnVerTodos, .btnHistorialBuscar { 
+    padding: 8px;
+    font-size: 17px;
+}
+
+.btnHistorialBuscar { margin-bottom: 2rem; }

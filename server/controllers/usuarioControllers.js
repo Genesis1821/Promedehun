@@ -20,6 +20,7 @@ const registarUsuario = async(req, res) => {
 }
 
 const usersNoAsignados = async(req, res) => {
+    // obtener los usuario, que no tengan relacion con productos, solo estos pueden ser actualiz...
     try {
        const resp = await pool.query(`SELECT cedula, responsable, estado_asignacion FROM usuario LEFT JOIN asignacion_articulos ON cedula_usuario = cedula WHERE estado = $1`, [true]);
 
@@ -33,8 +34,8 @@ const usersNoAsignados = async(req, res) => {
 
 const updateUserNoAsignado = async(req, res) => {
     try {
-        const { cedula, responsable } = req.body;
-        await pool.query(`UPDATE usuario SET cedula = $1, responsable = $2 WHERE cedula = $3`, [ cedula, responsable, cedula ]);
+        const { newCedula, cedulaActual, responsable } = req.body;
+        await pool.query(`UPDATE usuario SET cedula = $1, responsable = $2 WHERE cedula = $3`, [ newCedula, responsable, cedulaActual ]);
 
         res.json({ respuesta: 'Los cambios han sido guardados' });
     } catch (err) {
@@ -42,10 +43,21 @@ const updateUserNoAsignado = async(req, res) => {
     }
 }
 
-const usuarioRetirado = async(req, res) => {
+const getAllUser = async(req, res) => {
+    try {
+        const resp = await pool.query(`SELECT * FROM usuario WHERE estado = $1`, [true]);
+
+        res.json(resp.rows);
+    } catch (e) {
+        console.log(e.message);
+    }
+}
+
+const retirarUsuario = async(req, res) => {
     try {
         const { cedula } = req.body;
-        await pool.query(`UPDATE usuario SET estado = $1 WHERE cedula = $2`, [ false, cedula ]);
+        let fechaRetiro = new Date().toLocaleDateString();
+        await pool.query(`UPDATE usuario SET estado = $1, fecha_retiro = $2 WHERE cedula = $3`, [ false, fechaRetiro, cedula.toString() ]);
         
         res.json({ respuesta: 'La acción ha sido realizada exitosamente.' })
     } catch (error) {
@@ -55,7 +67,7 @@ const usuarioRetirado = async(req, res) => {
 
 const getUsuarioRetirados = async(req, res) => {
     try {
-        const resp = await pool.query('SELECT * FROM usuario WHERE estado = $1', [false]);
+        const resp = await pool.query('SELECT * FROM usuario WHERE estado = $1 ORDER BY responsable', [false]);
         res.json(resp.rows);
     } catch (err) {
         console.log(err.message);
@@ -67,8 +79,8 @@ const getUsuarioRetirados = async(req, res) => {
 module.exports = {
     registarUsuario,
     usersNoAsignados,
+    getAllUser,
     updateUserNoAsignado,
-    usuarioRetirado,
-    usuarioRetirado,
+    retirarUsuario,
     getUsuarioRetirados,
 }

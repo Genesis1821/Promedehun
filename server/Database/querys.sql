@@ -33,7 +33,8 @@ create table articulo(
 create table usuario (
 	cedula varchar(10) not null unique primary key,
 	responsable varchar(60) not null,
-	estado boolean not null
+	estado boolean not null,
+	fecha_retiro varchar
 );
 -- estado -> true = activo o  false = retirado
 select * from usuario;

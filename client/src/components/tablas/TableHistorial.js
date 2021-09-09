@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import './tableHistorial.css';
 import { apiHistorialAsignaciones, apiHistorialByArticulo } from '../../api/api';
 import { useForm } from '../../helpers/useForm';
 
@@ -6,12 +7,11 @@ import { useForm } from '../../helpers/useForm';
 
 const ModelTableHistorial = () => {
     const [dataHistorial, setDataHistorial] = useState([]);
-    const [ values, handleInputChange, reset ] = useForm({codigo: ''});
+    const [ values, handleInputChange, reset ] = useForm({ codigo: '' });
 
     const allItemsHistory = async() => {
         const { data } = await apiHistorialAsignaciones();
         setDataHistorial(data);
-        console.log(data)
     }
 
     useEffect(() => {
@@ -23,25 +23,27 @@ const ModelTableHistorial = () => {
 
         const { data } = await apiHistorialByArticulo(values.codigo);
         setDataHistorial(data);
-        console.log(data)
         reset();
     }
     return (
         <div>
-            <div>
-                <button onClick={ allItemsHistory }>Ver todos</button>
+            <div className='cabeceraHistorial'>    
                 <form onSubmit={ handleSubmit }>
-                    <label>Historial por artículo</label>
+                    <label className='TitleHistorial'>Historial por artículo</label>
                     <input 
+                        className='inputHistorial'
                         type='text'
                         placeholder='Ingrese el código del artículo'
                         name='codigo'
                         value={values.codigo}
                         onChange={handleInputChange}
                     />
-                    <button type='submit'>Buscar</button>
+                    <button type='submit' className='btnHistorialBuscar'>Buscar</button>
                 </form> 
+
+                <button onClick={ allItemsHistory } className='btnVerTodos'>Ver todos</button>
             </div>
+            
             <table>
                 <thead>
                     <tr>

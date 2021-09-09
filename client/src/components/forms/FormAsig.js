@@ -50,7 +50,7 @@ const FormAsig = () => {
         <h2>Asignación de Articulos</h2>
         <form className="relacionarArticulos" onSubmit={ handleSubmit }>
            
-            <select name='codigo_articulo'value={codigo_articulo} onChange={ handleInputChange } >
+            {/* <select name='codigo_articulo'value={codigo_articulo} onChange={ handleInputChange } >
             <option value='default'>Código de los artículos</option>
                 { codigoData.map( item => (
                     <option value={item.codigo} key={item.codigo}>
@@ -58,7 +58,15 @@ const FormAsig = () => {
                     </option>
                 )) 
                 }
-            </select>
+            </select> */}
+            <input type="text" placeholder='Código de los artículos' list='my-list' name='codigo_articulo'value={codigo_articulo} onChange={ handleInputChange } autoComplete='off' />
+            <datalist id='my-list'>
+                  { codigoData.map( item => (
+                        <option key={item.codigo} value={`${item.codigo} ${item.descripcion}`} />               
+                    )) 
+                  }
+                 
+            </datalist>   
 
             <input 
                 type="text" 

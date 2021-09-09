@@ -16,6 +16,11 @@ export const apiGetCodigosItems = () => axios.get(`${urlArticulo}codigoArticulos
     
 // Api peticiones Usuario
 export const apiRegistroUser = (datos) => axios.post(`${urlUser}registro `, datos);
+export const apiUsuariosNoRelacionados = () => axios.get(`${urlUser}noRelacionado`);
+export const apiGetUsers = () => axios.get(`${urlUser}allUsers`);
+export const apiUpdateUser = (values) => axios.put(`${urlUser}updateUsuario`, values);
+export const apiRetirarUser = (values) => axios.put(`${urlUser}retirar`, values);
+export const apiGetUsersRetirados = () => axios.get(`${urlUser}allUsersRetirados`);
 
 
 
