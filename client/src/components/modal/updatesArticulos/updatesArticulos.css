@@ -33,3 +33,51 @@
     background: rgba(192, 29, 29, 0.904);
     margin-bottom: 0;
 }
+
+/*Componente updateEstadoActual*/
+.desinArticulo {
+    font-size: 23px !important;
+    margin: 0;
+}
+
+.margin {
+    margin-bottom: 2rem;
+}
+
+
+/*Componente UpdateArticulo*/
+.compUpdateItem {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 3px;
+    margin: 1.4rem 0;
+}
+.compUpdateItem > h3 { margin: 0; margin-bottom: 17px; }
+
+.compUpdateItem > label {
+    font-size: 17.8px;
+}
+.compUpdateItem > select { margin: 0; padding: 3px !important; margin: 0.5rem 0; width: 97%; }
+
+.formUpdateItem {
+    margin: 0;
+    width: 95%;
+    font-size: 16px;
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
+    padding-left: 0;
+}
+
+.compUpdateItem > button {
+    border: none;
+    background: #fcdcc1;
+    cursor: pointer;
+    width: 80%;
+    align-self: center;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 17px;
+}

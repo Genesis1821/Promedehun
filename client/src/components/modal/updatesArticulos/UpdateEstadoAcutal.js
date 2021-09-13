@@ -1,5 +1,5 @@
 import { useState, useEffect }from 'react';
-import { apiGetCodigosItems } from '../../../api/api';
+import { apiChangeEstadoActual, apiGetCodigosItems } from '../../../api/api';
 import { useForm } from '../../../helpers/useForm';
 import './updatesArticulos.css';
 import Modal from '../Modal';
@@ -7,7 +7,7 @@ import Modal from '../Modal';
 const UpdateEstadoAcutal = ({closeModal}) => {
 
     const [articulos, setArticulos] = useState({ data: [], msg: '' });
-    const [ values, handleInputChange, reset ] = useForm({codigoActual: '', newEstado: 'Activo'});
+    const [ values, handleInputChange, reset ] = useForm({codigo: '', newEstado: 'Activo'});
 
     const getCodigos = async() => {
         const { data } = await apiGetCodigosItems('updateCodigo');
@@ -25,19 +25,28 @@ const UpdateEstadoAcutal = ({closeModal}) => {
 
     const handleSubmit = async(e) => { 
         e.preventDefault();
-        console.log(values)
+       if( values.codigo.length > 7 ){
+            const submitData = { estado_actual: values.newEstado, codigo: values.codigo.trim().split(' ')[0] };
+            const { data:{ respuesta } } = await apiChangeEstadoActual(submitData);
+            setArticulos({...articulos, msg: respuesta});
+
+            setTimeout(() => {
+                reset();
+                getCodigos(); 
+            }, 2000);
+       }
     }
 
     return (
         <Modal closeModal={closeModal}>
              <form className='formUpdCodigo' onSubmit={handleSubmit}>
-
+                <p className='desinArticulo'>Desincorporar artículo</p>
                 <label className='labelUpdCodigo'>Seleccione código</label>
                 <input 
                     type='text'
-                    name='codigoActual'
+                    name='codigo'
                     placeholder='Código del artículo'
-                    value={values.codigoActual}
+                    value={values.codigo}
                     onChange={handleInputChange}
                     list='my-list'
                     autoComplete='off'
@@ -51,14 +60,14 @@ const UpdateEstadoAcutal = ({closeModal}) => {
                 </datalist> 
 
                 <label className='labelUpdCodigo'>Estado actual</label>
-                <select name='newEstado' className='inputUpdCodigo' value={values.newEstado} onChange={handleInputChange} >
+                <select name='newEstado' className='inputUpdCodigo margin' value={values.newEstado} onChange={handleInputChange} >
                     <option value='Activo'>Activo</option>
                     <option value='Desincorporado'>Desincorporado</option>
                 </select>
 
                 { articulos.msg.length > 0 && <p id='msgOfProceso'>{articulos.msg}</p> }
                 <button type='submit' className='btnUpdCodigo'>
-                    Guardar Cambio
+                    Guardar cambios
                 </button>
                 <button type='button' onClick={ () => closeModal(false) } className='btnUpdCodigo cerrar'>
                     Cerrar
@@ -68,4 +77,4 @@ const UpdateEstadoAcutal = ({closeModal}) => {
     )
 }
 
-export default UpdateEstadoAcutal
+export default UpdateEstadoAcutal;

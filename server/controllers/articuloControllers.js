@@ -16,7 +16,7 @@ const registroArticulo = async(req, res) => {
             })
         } 
 
-        await pool.query(`INSERT INTO articulo(codigo, descripcion, marca, modelo, serial, estado_actual, condicion_ingreso, fecha_ingreso, factura, asignado) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`, [ codigo.trim(), descripcion, marca.trim(), modelo.trim(), serial.trim(), estado_actual, condicion_ingreso, fecha_ingreso, factura.trim(), false]);
+        await pool.query(`INSERT INTO articulo(codigo, descripcion, marca, modelo, serial, estado_actual, condicion_ingreso, fecha_ingreso, factura, asignado) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`, [ codigo.trim(), descripcion.trim(), marca.trim(), modelo.trim(), serial.trim(), estado_actual, condicion_ingreso, fecha_ingreso, factura.trim(), false]);
         
         res.json({ respuesta: 'El registro fue exitoso'})
   } catch (error) {
@@ -111,9 +111,12 @@ const updateArticulo = async(req, res) => {
 const changeEstadoArticulo = async(req, res) => {
   try {
       const { estado_actual, codigo } = req.body;
-      await pool.query(`UPDATE articulo SET estado_actual = $1 WHERE codigo = $2`, [ estado_actual, codigo.trim() ]);
+      let fechaActual = new Date().toLocaleDateString();
+      await pool.query(`UPDATE articulo SET estado_actual = $1, asignado = $2 WHERE codigo = $3`, [ estado_actual, false, codigo.trim() ]);
 
-      res.json({ respuesta: 'Los cambios han sido guardados' });
+      await pool.query(`UPDATE asignacion_articulos SET estado_asignacion = $1, fecha_desasignacion = $2 WHERE codigo_articulo = $3 AND estado_asignacion = $4`, [false, fechaActual, codigo.trim(), true]);
+
+      res.json({ respuesta: 'Los cambios han sido guardados exitosamente.' });
   } catch (err) {
       console.log(err.message);
   }

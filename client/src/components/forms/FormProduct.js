@@ -40,15 +40,15 @@ const FormProduct = () => {
             </div>
             <form className='formRegistro' onSubmit={ handleSubmit }>
                 
-                    <input type='text' placeholder='Código del artículo' id='codArticulo' name='codigo'  value={ values.codigo } onChange={ handleInputChange } />
+                    <input type='text' placeholder='Código del artículo' name='codigo'  value={ values.codigo } onChange={ handleInputChange } />
                 
-                    <input type='text' placeholder='Descripción del artículo' id='descArticulo'  name='descripcion' value={values.descripcion} onChange={handleInputChange}/>
+                    <input type='text' placeholder='Descripción del artículo'  name='descripcion' value={values.descripcion} onChange={handleInputChange}/>
 
-                    <input type='text' placeholder='Marca del artículo (opcional)*' id='marcaArticulo' name='marca' value={values.marca}onChange={handleInputChange}/>
+                    <input type='text' placeholder='Marca del artículo (opcional)*' name='marca' value={values.marca}onChange={handleInputChange}/>
                 
-                    <input type='text' placeholder='Modelo del artículo (opcional)*' id='modeloArticulo' name='modelo' value={values.modelo}onChange={handleInputChange} />
+                    <input type='text' placeholder='Modelo del artículo (opcional)*' name='modelo' value={values.modelo}onChange={handleInputChange} />
                 
-                    <input type='text' placeholder='Serial del artículo (opcional)*' id='serial' name='serial' value={values.serial} onChange={handleInputChange}/>
+                    <input type='text' placeholder='Serial del artículo (opcional)*' name='serial' value={values.serial} onChange={handleInputChange}/>
                 
                 <div>
                     <select name='condicion_ingreso' value={values.condicion_ingreso} onChange={handleInputChange}>
