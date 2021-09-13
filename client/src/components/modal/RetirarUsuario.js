@@ -47,7 +47,7 @@ const RetirarUsuario = ({closeModal}) => {;
                 <label className='labelUpdateUser'>Seleccione Usuario</label>
                 <input 
                     type='text' 
-                    placeholder='Cédula del usuario' 
+                    placeholder='Cédula actual' 
                     list='my-list'
                     name='cedula'
                     value={ values.cedula }

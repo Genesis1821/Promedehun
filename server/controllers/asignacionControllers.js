@@ -6,11 +6,12 @@ const asignacionArticulo = async(req, res) => {
     try {
         const { codigo_articulo, cedula_usuario, fecha_asignacion } = req.body;
         let estado_asignacion = true;
-
-        await pool.query('UPDATE articulo SET asignado = $1 WHERE codigo = $2', [estado_asignacion, codigo_articulo ]);
+        let codigo = codigo_articulo.trim().split(' ')[0];
+      
+        await pool.query('UPDATE articulo SET asignado = $1 WHERE codigo = $2', [estado_asignacion, codigo ]);
 
         await pool.query(`INSERT INTO asignacion_articulos(codigo_articulo, cedula_usuario, fecha_asignacion, estado_asignacion) 
-            values($1, $2, $3, $4)`, [codigo_articulo, cedula_usuario.trim(), fecha_asignacion, estado_asignacion]);
+            values($1, $2, $3, $4)`, [codigo, cedula_usuario.trim(), fecha_asignacion, estado_asignacion]);
 
         res.json({ respuesta: 'Asignación realizada exitosamente', error: false});
     
@@ -20,13 +21,11 @@ const asignacionArticulo = async(req, res) => {
     }
 }
 
-const getAsignacionByCodigo = async(req, res) => {
+const getAsignacionesActivas = async(req, res) => {
     try {
-        const { codigo } = req.params;
       
-        const resp = await pool.query(`SELECT * FROM asignacion_articulos WHERE codigo_articulo = $1 AND 
-        estado_asignacion = $2`, [ codigo.trim(), true ]);
-
+        const resp = await pool.query(`SELECT id,codigo_articulo, descripcion, cedula_usuario FROM asignacion_articulos INNER JOIN articulo ON codigo = codigo_articulo WHERE estado_asignacion = $1`, [ true ]);
+      
         res.json(resp.rows);
     } catch (err) {
         console.log(err.message);
@@ -42,7 +41,7 @@ const desasignarArticulo = async(req, res) => {
 
         await pool.query(`UPDATE articulo SET estado_actual = $1, asignado = $2 WHERE codigo = $3`, [ estado_actual, estadoAsignacion, codigo ]);
 
-        res.json({ respuesta: 'Artículo desasignado exitosamente'});
+        res.json({ respuesta: 'Artículo desasignado exitosamente.'});
 
     } catch (err) {
         console.log(err.message);
@@ -76,7 +75,7 @@ const historialByArticulo = async(req, res)=> {
 
 module.exports = {
     asignacionArticulo,
-    getAsignacionByCodigo,
+    getAsignacionesActivas,
     desasignarArticulo,
     historialAsignaciones,
     historialByArticulo

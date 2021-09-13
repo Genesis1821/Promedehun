@@ -12,17 +12,18 @@ const FormAsig = () => {
 
     const { codigo_articulo, cedula_usuario, fecha_asignacion } = values;
 
-    useEffect(() => {
-        const codigosArticulos = async() => {
-            const { data } = await apiGetCodigosItems();
-            setCodigoData(data);
-        }
+    const codigosArticulos = async() => {
+        const { data } = await apiGetCodigosItems('FormAsing');
+        setCodigoData(data);
+    }
+
+    useEffect(() => { 
         codigosArticulos()
 
         return () => {
             setCodigoData([]);
-            reset();
             setMsgRegistro({ state: false, msg: '' });
+            reset();   
         }
     }, [])
 
@@ -30,13 +31,12 @@ const FormAsig = () => {
         e.preventDefault();
         let cedula = cedula_usuario.trim();
 
-        if( codigo_articulo.length < 4 || cedula.length < 7 || cedula.length > 8 ){
+        if( codigo_articulo.length < 7 || cedula.length < 7 || cedula.length > 8 ){
             setMsgRegistro({ state: true, msg: 'El dato es muy corto o la cédula es incorrecta, vuelve a intentarlo.' })
         }else {
-            const deleteCodigoState =  codigoData.filter( cod => cod.codigo !== codigo_articulo );
             let response = await registrar( 'FormAsig', values, setMsgRegistro, reset );
-            !response && setCodigoData(deleteCodigoState) ; //response == false => 0 errores.
-            // si no hay errores, actualizar el estado de los codigos, elimninar el que fue asignado.
+            !response &&  codigosArticulos(); //response == false => 0 errores.
+            // si no hay errores, actualizar el estado de los codigos.
         }
         
        setTimeout(() => {
@@ -50,19 +50,10 @@ const FormAsig = () => {
         <h2>Asignación de Articulos</h2>
         <form className="relacionarArticulos" onSubmit={ handleSubmit }>
            
-            {/* <select name='codigo_articulo'value={codigo_articulo} onChange={ handleInputChange } >
-            <option value='default'>Código de los artículos</option>
-                { codigoData.map( item => (
-                    <option value={item.codigo} key={item.codigo}>
-                        {item.codigo} &nbsp;&nbsp;&nbsp;&nbsp;{item.descripcion} ...
-                    </option>
-                )) 
-                }
-            </select> */}
             <input type="text" placeholder='Código de los artículos' list='my-list' name='codigo_articulo'value={codigo_articulo} onChange={ handleInputChange } autoComplete='off' />
             <datalist id='my-list'>
                   { codigoData.map( item => (
-                        <option key={item.codigo} value={`${item.codigo} ${item.descripcion}`} />               
+                        <option key={item.codigo} value={`${item.codigo }  ${ item.descripcion}`} />               
                     )) 
                   }
                  

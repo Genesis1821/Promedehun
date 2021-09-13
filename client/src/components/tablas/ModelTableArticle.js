@@ -7,7 +7,7 @@ const ModelTableArticle = ({articulos}) => {
                <thead>
                     <tr>
                         <th>Código</th>
-                        <th>Descipción</th>
+                        <th>Descripción</th>
                         <th>Cédula</th>
                         <th>Responsable</th>            
                         <th>Condición de Ingreso</th>

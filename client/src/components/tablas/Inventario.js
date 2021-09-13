@@ -3,15 +3,12 @@ import { allArticulos } from '../../api/api';
 import ModelTableArticle from './ModelTableArticle';
 
 
-function Inventario(){
+const Inventario = () => {
 
     const [ articulos, setArticulos ] = useState([]);
 
     const getAllArticulos = async({target}) => {
         const { data } = await allArticulos();
-    //     const codigosArray = data.filter( item => item.estado_asignacion === true || item.estado_asignacion === null )
-    //   console.log(codigosArray)
-        
 
         if ( target.value !== 'default' ) {
             const articulosByStatus = data.filter( item => item.estado_actual === target.value );
@@ -21,9 +18,10 @@ function Inventario(){
         }
     }    
 
-    useEffect(() => { // simular el valor del evento en default, para que la funcion actualice el estado con toda la data.
+    useEffect(() => { 
+        // simular el valor del evento en default, para que la funcion actualice el estado con toda la data.
         let helpObjec = { target: { value: 'default' } };
-       getAllArticulos(helpObjec);
+        getAllArticulos(helpObjec);
     }, [])
 
 

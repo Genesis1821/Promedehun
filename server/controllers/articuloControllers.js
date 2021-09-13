@@ -26,10 +26,16 @@ const registroArticulo = async(req, res) => {
 
 const getCodigoArticulos = async(req, res) => {
   try {
-    const resp = await pool.query(`SELECT codigo, descripcion FROM articulo WHERE estado_actual = $1 AND asignado = $2 ORDER BY codigo`, ['Activo', false]); // where estado = false osea por asginar
-    const descLength = resp.rows.map( item => ({ codigo: item.codigo, descripcion: item.descripcion.slice(0, 28) }) ); // 28 caracteres por articulo, descripcion.
-    res.json( descLength );
+    const { component } = req.params; // value => updateCodigo OR FormAsig.
 
+    if ( component === 'updateCodigo' ){ // todos los articulos que puedan marcarse como desincorporado
+        const resp = await pool.query(`SELECT codigo, descripcion FROM articulo WHERE estado_actual = $1 ORDER BY codigo`, ['Activo']); 
+        res.json( resp.rows );
+    } else { // items que estan disponibles para asignar.
+        const resp = await pool.query(`SELECT codigo, descripcion FROM articulo WHERE estado_actual = $1 AND asignado = $2 ORDER BY codigo`, ['Activo', false]); // where estado === false, osea por asginar.
+        res.json( resp.rows );
+    }
+   
   } catch (err) {
     console.log(err.message);
   }
@@ -53,7 +59,7 @@ const getArticulosByUser = async(req, res) => {
             serial
             FROM usuario 
             INNER JOIN asignacion_articulos ON cedula_usuario = cedula
-            INNER JOIN articulo ON codigo = codigo_articulo WHERE cedula = $1`, [ cedula ]
+            INNER JOIN articulo ON codigo = codigo_articulo WHERE cedula = $1 AND estado_asignacion = $2`, [ cedula, true ]
         );  
         res.json( resp.rows );
 

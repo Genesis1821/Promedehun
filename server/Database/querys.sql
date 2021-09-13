@@ -6,7 +6,7 @@ create table asignacion_articulos(
 	cedula_usuario varchar(25) NOT NULL,
 	fecha_asignacion varchar(15) NOT NULL,
 	fecha_desasignacion varchar(15),
-	estado_asignacion boolean NOT NULL,
+	estado_asignacion boolean NOT NULL, 
 	foreign key(codigo_articulo) references articulo(codigo),
 	foreign key(cedula_usuario) references usuario(cedula)
 );
@@ -27,14 +27,13 @@ create table articulo(
 	condicion_ingreso varchar not null,
 	fecha_ingreso varchar(15) not null,
 	factura varchar not null,
-	asignado boolean not null	
-);
+	asignado boolean not null
 
 create table usuario (
 	cedula varchar(10) not null unique primary key,
 	responsable varchar(60) not null,
 	estado boolean not null,
-	fecha_retiro varchar
+	fecha_retiro varchar 
 );
 -- estado -> true = activo o  false = retirado
 select * from usuario;

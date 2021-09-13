@@ -7,7 +7,7 @@ const { registroArticulo, allArticulos, getArticulosByUser, getCodigoArticulos, 
 // routes.
 router.get('/articulo/allArticulos', allArticulos);
 router.get('/articulo/articulos-usuario/:cedula', getArticulosByUser);
-router.get('/articulo/codigoArticulos', getCodigoArticulos);
+router.get('/articulo/codigoArticulos/:component', getCodigoArticulos);
 router.get('/articulo/sinRelacion', articulosSinRelaciones);
 router.post('/articulo/registro', registroArticulo);
 router.put('/articulo/updateCodigo', updateCodigoArticulo );

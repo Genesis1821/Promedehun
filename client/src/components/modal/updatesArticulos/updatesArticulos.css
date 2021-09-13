@@ -1,0 +1,35 @@
+/*Estilos componente updateCodigo*/
+
+.formUpdCodigo {
+    background: #fff;
+    width: 340px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.formUpdCodigo > p { font-size: 17px; margin-bottom: 2.5rem;}
+.labelUpdCodigo { 
+    font-size: 20px; 
+    font-weight: bold;
+}
+.inputUpdCodigo {
+    margin: 0;
+    margin-top: 0.3rem;
+    margin-bottom: 0.9rem;
+}
+#msgOfProceso { margin: 0;  font-size: 20px; margin-top: 0.7rem; margin-bottom: 0.7rem;}
+.btnUpdCodigo {
+    display: block;
+    padding: 8px;
+    font-size: 20px;
+    border: none;
+    border-radius: 3px;
+    background: #fcdcc1;
+    cursor: pointer;
+    margin-bottom: 0.8rem;
+}
+
+.cerrar {
+    background: rgba(192, 29, 29, 0.904);
+    margin-bottom: 0;
+}
