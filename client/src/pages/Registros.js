@@ -7,9 +7,6 @@ import NavbarRegistros from '../components/navbars/NavbarRegistros';
 import BotonVolver from '../components/BotonVolver';
 
 
-
-
-
 const Registros = () => {
     const body = document.querySelector('body');
     body.style.backgroundColor = '#fcdcc1';
@@ -17,7 +14,7 @@ const Registros = () => {
 
     return (
       <>
-      <BotonVolver />
+        <BotonVolver />
         <NavbarRegistros /> 
 
         <Switch>
@@ -31,11 +28,3 @@ const Registros = () => {
 }
 
 export default Registros;
-// {/* <FormProduct /> 
-// <div className="flex">
-//   <FormUsers />
-//   <FormAsig /> 
-// </div> */}
-
-// {/* <Inventario /> */}
-// {/* <ArticulosByUser /> */}

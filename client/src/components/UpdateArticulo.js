@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { apiUpdateItem, allArticulos } from "../api/api";
 import { useForm } from "../helpers/useForm";
 import InputUpdateItem from "./InputUpdateItem";
-import './modal/updatesArticulos/updatesArticulos.css';
+// import './modal/updatesArticulos/updatesArticulos.css';
+import '../components/forms/FormProduct.css';
 
 
 const initalState = { descripcion: '', marca: '', modelo: '', serial: '', condicion_ingreso: 'Patrimonial/Comprado', fecha_ingreso: '', factura: '' }
@@ -57,7 +58,6 @@ const UpdateArticulo = () => {
     }
 
     return (
-        <div>
             <form className='compUpdateItem' onSubmit={ handleSubmit }>
                 <h3>Actualizar artículo</h3>
                 <label>Código del artículo</label>
@@ -139,7 +139,6 @@ const UpdateArticulo = () => {
                 { inputCodigoAndResponse.response.length > 0 && <p>{inputCodigoAndResponse.response}</p> }
                 <button type='submit'>Guardar cambios</button>
             </form>
-        </div>
     )
 }
 

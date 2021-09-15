@@ -55,7 +55,6 @@ const UpdateUsuario = ({ closeModal }) => {
                     name='cedulaActual'
                     value={ values.cedulaActual }
                     onChange={ handleInputChange }
-                    className='inputUpdateUser'
                     autoComplete='off'
                 />
                 <datalist id='my-list'>
@@ -73,7 +72,6 @@ const UpdateUsuario = ({ closeModal }) => {
                     name='newCedula'
                     value={ values.newCedula}
                     onChange={ handleInputChange }
-                    className='inputUpdateUser'
                 /> 
 
                 <label className='labelUpdateUser'>Nuevo nombre</label>
@@ -83,7 +81,6 @@ const UpdateUsuario = ({ closeModal }) => {
                     name='responsable'
                     value={ values.responsable }
                     onChange={ handleInputChange }
-                    className='inputUpdateUser'
                     autoComplete='off'
                 /> 
                 {  dataUsers.response.length > 0 && <p>{ dataUsers.response }</p>  }

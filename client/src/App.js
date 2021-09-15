@@ -9,12 +9,11 @@ import Home from './pages/Home';
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/configuracion" component={ OpcionesSistema } />
-        <Route path="/registros" component={ Registros } />
-        <Route exact path="/" component={ Home } />
-      </Switch>
-      
+        <Switch>
+          <Route path="/configuracion" component={ OpcionesSistema } />
+          <Route path="/registros" component={ Registros } />
+          <Route exact path="/" component={ Home } />
+        </Switch>  
     </Router>
   )
 }
