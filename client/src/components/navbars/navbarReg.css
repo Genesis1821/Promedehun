@@ -1,0 +1,26 @@
+.navContentRegistros {
+    background: #fff;
+    padding: 6px;
+    width: 700px;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: -2.5rem;
+}
+
+.navUlRegistros {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navEnlacesRegistros {
+    color: #000;
+    transition: background .3s ease;
+    padding: 7px;
+    border-radius: 4px;
+}
+.navEnlacesRegistros:hover {
+    background: #fcdcc1;
+}
+

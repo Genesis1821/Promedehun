@@ -46,39 +46,40 @@ const FormAsig = () => {
 
     return (
         <div className="relacionar">
-        { msgRegistro.state && <p>{ msgRegistro.msg }</p> }
-        <h2>Asignación de Articulos</h2>
-        <form className="relacionarArticulos" onSubmit={ handleSubmit }>
-           
-            <input type="text" placeholder='Código de los artículos' list='my-list' name='codigo_articulo'value={codigo_articulo} onChange={ handleInputChange } autoComplete='off' />
-            <datalist id='my-list'>
-                  { codigoData.map( item => (
-                        <option key={item.codigo} value={`${item.codigo }  ${ item.descripcion}`} />               
-                    )) 
-                  }
-                 
-            </datalist>   
+            { msgRegistro.state && <p class='aviso'>{ msgRegistro.msg }</p> }
+            <h2>Asignación de Articulos</h2>
+            <form className="relacionarArticulos" onSubmit={ handleSubmit }>
+            
+                <input type="text" placeholder='Código de los artículos' list='my-list' name='codigo_articulo'value={codigo_articulo} onChange={ handleInputChange } autoComplete='off' />
+                <datalist id='my-list'>
+                    { codigoData.map( item => (
+                            <option key={item.codigo} value={`${item.codigo }  ${ item.descripcion}`} />               
+                        )) 
+                    }
+                    
+                </datalist>   
 
-            <input 
-                type="text" 
-                placeholder='Cédula del Responsable'
-                name='cedula_usuario'
-                value={cedula_usuario}
-                onChange={handleInputChange} 
-            /> 
-            <label htmlFor="fechaAsignacion" className="fechaAsignacion">Fecha de Asignacion </label>
-            <input 
-                type="date" 
-                id="fechaAsignacion"
-                name='fecha_asignacion'
-                value={fecha_asignacion}
-                onChange={handleInputChange} 
-            />
-            <button  type='submit' className='botonEnviar'>
-                Guardar Registro
-            </button>
-        </form>
-    </div>
+                <input 
+                    type="text" 
+                    placeholder='Cédula del Responsable'
+                    name='cedula_usuario'
+                    value={cedula_usuario}
+                    onChange={handleInputChange} 
+                    autoComplete='off'
+                /> 
+                <label htmlFor="fechaAsignacion" className="fechaAsignacion">Fecha de Asignacion </label>
+                <input 
+                    type="date" 
+                    id="fechaAsignacion"
+                    name='fecha_asignacion'
+                    value={fecha_asignacion}
+                    onChange={handleInputChange} 
+                />
+                <button  type='submit' className='botonEnviar'>
+                    Guardar Registro
+                </button>
+            </form>
+        </div>
     )
 }
 

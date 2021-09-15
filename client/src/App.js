@@ -2,6 +2,7 @@
 import Registros from "./pages/Registros";
 import './App.css'
 import OpcionesSistema from './pages/OpcionesSistema';
+import Home from './pages/Home';
 
 
 
@@ -10,7 +11,8 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path="/configuracion" component={ OpcionesSistema } />
-        <Route exact path="/registros" component={ Registros } />
+        <Route path="/registros" component={ Registros } />
+        <Route exact path="/" component={ Home } />
       </Switch>
       
     </Router>

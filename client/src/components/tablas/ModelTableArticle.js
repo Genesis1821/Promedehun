@@ -23,7 +23,7 @@ const ModelTableArticle = ({articulos}) => {
                     {
                         articulos.map( item => (
                             <tr key={ item.codigo } >
-                                <td>{ item.codigo }</td>
+                                <td><b>{ item.codigo }</b></td>
                                 <td>{ item.descripcion }</td>
                                 <td>{ item.cedula }</td>
                                 <td>{ item.responsable }</td>                        

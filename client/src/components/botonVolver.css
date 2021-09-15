@@ -1,0 +1,11 @@
+.componetnBtnVolver {
+    width: 100px;
+    background: #fff;
+    padding: 10px;
+    color: #000;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+}

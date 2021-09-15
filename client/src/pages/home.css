@@ -1,0 +1,35 @@
+.ContentHome{
+    width: 900px;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homeTitle{
+    font-size: 45px;
+    color: #025f81;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.homeIMG{
+    width: 300px;
+    height: 300px;
+}
+
+.contentHomeEnlances {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.homeEnlances {
+    background: #025f81;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 17px;
+}

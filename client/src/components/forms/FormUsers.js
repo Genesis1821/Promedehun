@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { registrar } from '../../helpers/registros';
 import { useForm } from '../../helpers/useForm'
-import './FormUsers.css'
+import './FormUsers.css';
 
 const FormUsers = () => {
         const [msgRegistro, setMsgRegistro] = useState({ state: false, msg: '' });
@@ -31,7 +31,7 @@ const FormUsers = () => {
             
 
             <form className="formPersonal" onSubmit={ handleSubmit }>
-                { msgRegistro.state && <p>{ msgRegistro.msg }</p> }
+                { msgRegistro.state && <p className='aviso'>{ msgRegistro.msg }</p> }
                 <h2>Personal</h2>
                 <input 
                     type='text' 

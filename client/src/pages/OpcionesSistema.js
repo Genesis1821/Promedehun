@@ -13,6 +13,8 @@ import UpdateArticulo from "../components/UpdateArticulo";
 
 
 const OpcionesSistema = () => {
+    const body = document.querySelector('body');
+    body.style.backgroundColor = '#fcdcc1';
     const [ openModal, setOpenModal ] = useState(false);
     const [ modalUpdateUser, setModalUpdateUser ] = useState(false);
     const [ modalRetirarUser, setModalRetirarUser ] = useState(false);

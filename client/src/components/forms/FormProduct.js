@@ -35,7 +35,7 @@ const FormProduct = () => {
     return (
         <div className="contentViewRegister">
             <div className='registerContentTitle'>
-                { msgRegistro.state && <p>{ msgRegistro.msg }</p> }
+                { msgRegistro.state && <p className='aviso'>{ msgRegistro.msg }</p> }
                 <h2>Registro de Inventario</h2>
             </div>
             <form className='formRegistro' onSubmit={ handleSubmit }>

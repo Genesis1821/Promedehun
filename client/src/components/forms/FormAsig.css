@@ -1,36 +1,13 @@
 .relacionar{
-    width:80%;
+    width: 500px;  
+    margin: auto;
     background:#FFF;
     padding:20px;
-   
     border-radius:15px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19);
-    margin: 30px auto ;
+    margin-top: 60px;
 }
-  
-input {
-  
-    padding: 5px;
-    font-size: 1.2em;
-    border: none;
-    border-bottom: 2px solid rgb(199, 199, 199);
-    transition: border-bottom .3s ease;
-    
-}
-input:focus{
-    outline: none;
-    border-bottom: 2px solid #fdcca5;
-}
-input::placeholder{
-    color: black;
-}
-
-.fechaDesasignacion, .fechaAsignacion{
-    font-size: 1.2em;
-    display: block;
-    margin-top: 10px;
-  
-}
-#fechaDesasignacion, #fechaAsignacion{
-    margin: 10px 0;
+.relacionarArticulos {
+    display: flex;
+    flex-direction: column;
 }

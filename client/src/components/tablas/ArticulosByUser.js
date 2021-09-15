@@ -47,6 +47,7 @@ const ArticulosByUser = () => {
                 onChange={ handleInputCedula }
                 name='cedula'
                 value={ articulos.cedula }
+                autoComplete='off'
             />
             <button onClick={handleSubmit} className='btnEnviar'>Buscar</button>
           { articulos.data.length > 0  && <ModelTableArticle articulos={articulos.data} />}
