@@ -11,47 +11,53 @@ import UpdateUsuario from "../modal/UpdateUsuario";
 const NavbarConfiguracion = () => {
     const { url } = useRouteMatch();
 
-    const [ openModal, setOpenModal ] = useState(false);
-    const [ modalUpdateUser, setModalUpdateUser ] = useState(false);
-    const [ modalRetirarUser, setModalRetirarUser ] = useState(false);
-    const [ modalUpdateCodigo, setModalUpdateCodigo ] = useState(false);
-    const [ modalUpdateEstadoActual, setModalUpdateEstadoActual] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
+    const [modalUpdateUser, setModalUpdateUser] = useState(false);
+    const [modalRetirarUser, setModalRetirarUser] = useState(false);
+    const [modalUpdateCodigo, setModalUpdateCodigo] = useState(false);
+    const [modalUpdateEstadoActual, setModalUpdateEstadoActual] = useState(false);
 
 
     return (
         <div className='navContentConfig'>
             <ul className='navUlConfig'>
-                <button onClick={ () => setOpenModal(true) }  className='navEnlancesConfig'>
+                <button onClick={() => setOpenModal(true)} className='navEnlancesConfig'>
                     Desasignar artículo
                 </button>
-                <button className='navEnlancesConfig' onClick={ () => setModalUpdateUser(true) }>
+                <button className='navEnlancesConfig' onClick={() => setModalUpdateUser(true)}>
                     Actualizar usuario
                 </button>
-                <button className='navEnlancesConfig' onClick={ () => setModalRetirarUser(true) }>
+                <button className='navEnlancesConfig' onClick={() => setModalRetirarUser(true)}>
                     Retirar usuario
                 </button>
-                <button className='navEnlancesConfig' onClick={ () => setModalUpdateCodigo(true) } >
+                <button className='navEnlancesConfig' onClick={() => setModalUpdateCodigo(true)} >
                     Actualizar código
                 </button>
-                <button className='navEnlancesConfig' onClick={ () => setModalUpdateEstadoActual(true) } >
+                <button className='navEnlancesConfig' onClick={() => setModalUpdateEstadoActual(true)} >
                     Desincorporar artículo
                 </button>
                 <Link to={`${url}/actualizarCodigo`} className='navEnlancesConfig'>
                     Actualizar artículo
                 </Link>
+                <Link to={`${url}/historial-articulos`} className='navEnlancesConfig'>
+                    Artículos desincorporados
+                </Link>
+                <Link to={`${url}/usuarios-retirados`} className='navEnlancesConfig'>
+                    Usuarios retirados
+                </Link>
             </ul>
 
             {
-                openModal &&  <Desasignacion  closeModal={setOpenModal} />              
+                openModal && <Desasignacion closeModal={setOpenModal} />
             }
             {
-                modalUpdateUser && <UpdateUsuario closeModal={setModalUpdateUser}  />
+                modalUpdateUser && <UpdateUsuario closeModal={setModalUpdateUser} />
             }
             {
                 modalRetirarUser && <RetirarUsuario closeModal={setModalRetirarUser} />
             }
             {
-                modalUpdateCodigo && <UpdateCodigo  closeModal={setModalUpdateCodigo} />
+                modalUpdateCodigo && <UpdateCodigo closeModal={setModalUpdateCodigo} />
             }
             {
                 modalUpdateEstadoActual && <UpdateEstadoAcutal closeModal={setModalUpdateEstadoActual} />
