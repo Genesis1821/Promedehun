@@ -1,4 +1,4 @@
-import { useRouteMatch, Switch, Route } from 'react-router';
+import { useRouteMatch, Switch, Route, useHistory } from 'react-router';
 import BotonVolver from "../components/BotonVolver";
 import './opcionesSistema.css';
 import NavbarConfiguracion from "../components/navbars/NavbarConfiguracion";
@@ -14,7 +14,11 @@ const OpcionesSistema = () => {
     const body = document.querySelector('body');
     body.style.backgroundColor = '#fcdcc1';
     const { path } = useRouteMatch();
+    const router = useHistory();
 
+    const isLogin = JSON.parse(window.localStorage.getItem('user-access')) || false;
+
+    !isLogin?.acceso && router.push('/');
 
     return (
         <>

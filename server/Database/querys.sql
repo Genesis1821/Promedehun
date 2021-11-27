@@ -56,3 +56,15 @@ values('1-0102-01', 'Mesa secretarial base metal y tope madera', 's/m', 'mesa', 
 	   'activo', 'Patrimonial/Prestado', 
 	   '14/07/2020','factura1');
 
+
+
+consulta para registar los datos en la base de datos, -------------
+los cuales permitirán acceder al sistema.
+
+create table registro(
+	nombre VARCHAR(60),
+	clave varchar(30)
+);
+
+insert into registro(nombre, clave) values('promedehun', 'aitamarig16');
+--------------------------------------------------------------------
