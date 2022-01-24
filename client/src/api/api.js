@@ -3,6 +3,7 @@ import axios from 'axios';
 const urlArticulo = 'http://localhost:4000/api/articulo/';
 const urlUser = 'http://localhost:4000/api/usuario/';
 const urlAsignacionItem = 'http://localhost:4000/api/asignacion';
+const urlPdf = 'http://localhost:4000/api/generar/informe';
 
 
 // Api peticiones Articulos
@@ -27,9 +28,6 @@ export const apiUpdateUser = (values) => axios.put(`${urlUser}updateUsuario`, va
 export const apiRetirarUser = (values) => axios.put(`${urlUser}retirar`, values);
 export const apiGetUsersRetirados = () => axios.get(`${urlUser}allUsersRetirados`);
 
-
-
-
 // Api peticiones Asignacion de Articulo
 export const apiAsignarArticulo = (datos) => axios.post(`${urlAsignacionItem}`, datos);
 export const apiGetAsignacionesActivas = () => axios.get(`${urlAsignacionItem}`);
@@ -37,4 +35,5 @@ export const apiDesasignarArticulo = (values) => axios.put(`${urlAsignacionItem}
 export const apiHistorialAsignaciones = () => axios.get(`${urlAsignacionItem}-historial`);
 export const apiHistorialByArticulo = (codigo) => axios.get(`${urlAsignacionItem}/historial/${codigo}`);
 
-
+// Api Generar PDF
+export const apiGenerarPDF = (datos) => axios.post(`${urlPdf}`, datos, { responseType: 'blob' });

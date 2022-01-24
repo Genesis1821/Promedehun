@@ -73,7 +73,7 @@ tbody > tr > td:nth-child(11){
     margin-bottom: 1.3rem;
     padding-left: 6px;
 }
-.btnEnviar {
+.btnEnviar, .generarPdf {
     margin-left: 1.4rem;
     padding: 5px;
     cursor: pointer;
@@ -83,5 +83,11 @@ tbody > tr > td:nth-child(11){
     border-radius: 3px;
     transition: background .4s ease;
 }
-
+.generarPdf {
+    font-size: 17px;
+    background: #fdbf8d;
+}
+.generarPdf:hover{
+    background: #e0a371;
+}
 .btnEnviar:hover { background: rgb(233, 226, 226)}
