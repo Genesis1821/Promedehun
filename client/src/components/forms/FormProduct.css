@@ -28,7 +28,7 @@ select { width: 100%; }
 
 input:focus{
   outline: none;
-  border-bottom: 2px solid #fdcca5;
+  border-bottom: 2px solid #6f8cff;
 }
 
 input::placeholder{
@@ -47,7 +47,7 @@ input::placeholder{
   padding: 10px;
   font-size: 1em;
   margin: 10px 0;
-  background: #fde5d3;
+  background: #6f8cff;
   cursor: pointer;
   border-radius: 4px;
 }  

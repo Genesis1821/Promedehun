@@ -30,7 +30,7 @@ const Home = () => {
                     Cerrar sesión
                 </button>}
             <div className='ContentHome'>
-                <h1 className='homeTitle' style={{ marginTop: acceso ? '-20px' : '20px' }}>Promedehun</h1>
+                <h1 className='homeTitle' style={{ marginTop: acceso ? '-20px' : '20px' }}>PROMEDEHUM</h1>
                 <img src='/logo.jpg' alt='logo fundacion' className='homeIMG' />
 
                 {acceso &&
